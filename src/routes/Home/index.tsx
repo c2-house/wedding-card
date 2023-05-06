@@ -24,7 +24,7 @@ const Home = () => {
         소중한 분들을 초대합니다.
       </p>
       <div className={styles.buttonWrapper}>
-        <Button value='청첩장 보기' size='fullWidth' onClick={() => navigate('/invitation')} />
+        <Button text='청첩장 보기' size='fullWidth' onClick={() => navigate('/invitation')} />
       </div>
     </div>
   )

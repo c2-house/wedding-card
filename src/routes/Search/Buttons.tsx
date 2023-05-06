@@ -5,7 +5,6 @@ import { useRecoil } from 'hooks/useRecoil'
 import { selectedIndexState } from 'states/map'
 import { TSearchStatus } from 'types/place'
 
-import Button from 'components/Button'
 import styles from './search.module.scss'
 
 interface IProps {
@@ -27,7 +26,7 @@ const Buttons = ({ status, inputRef, searchWord }: IProps) => {
 
   return (
     <div className={styles.buttonWrapper}>
-      <Button
+      {/* <Button
         value='다른 이미지 선택'
         buttonStyle='secondary'
         disabled={status === 'loading'}
@@ -38,7 +37,7 @@ const Buttons = ({ status, inputRef, searchWord }: IProps) => {
         <Button value='지도에서 찾기' onClick={handleMapSearchClick} className={styles.button} />
       ) : (
         <Button value='장소 검색' type='submit' disabled={status === 'loading'} className={styles.button} />
-      )}
+      )} */}
     </div>
   )
 }

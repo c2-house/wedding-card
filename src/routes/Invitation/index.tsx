@@ -1,3 +1,4 @@
+import BankAccount from './components/BankAccount'
 import Calendar from './components/Calendar'
 import Welcome from './components/Welcome'
 import './invitation.module.scss'
@@ -13,9 +14,7 @@ const Invitation = () => {
         <h2>LOCATION</h2>
       </section>
       <Calendar />
-      <section>
-        <h2>마음 전하실 곳</h2>
-      </section>
+      <BankAccount />
       <section>
         <h2>방명록</h2>
       </section>

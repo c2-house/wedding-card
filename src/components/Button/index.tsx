@@ -1,10 +1,11 @@
-import { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 import cx from 'classnames'
+import { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
 import styles from './button.module.scss'
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  value: string
+  text: string
+  value?: string
   size?: 'fullWidth' | 'large' | 'medium' | 'small'
   buttonStyle?: 'primary' | 'secondary' | 'ghost'
   className?: string
@@ -14,6 +15,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = ({
+  text,
   value,
   size = 'medium',
   buttonStyle = 'primary',
@@ -29,8 +31,9 @@ const Button = ({
       className={cx(styles.button, styles[size], styles[buttonStyle], className)}
       disabled={disabled}
       onClick={onClick}
+      value={value}
     >
-      {value}
+      {text}
     </button>
   )
 }

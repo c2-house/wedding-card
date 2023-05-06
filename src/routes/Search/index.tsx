@@ -1,16 +1,14 @@
 import { ChangeEvent, FormEvent, MouseEvent, useRef, useState } from 'react'
 
+import { SAMPLE_IMAGES } from 'constants/images'
+import { useModal } from 'hooks/useModal'
 import { getPlaceInferenceApi } from 'services/place'
 import { IPlaceApiRes, TSearchStatus } from 'types/place'
-import { useModal } from 'hooks/useModal'
-import { SAMPLE_IMAGES } from 'constants/images'
 
-import Button from 'components/Button'
-import Modal from 'components/Modal'
-import ImageGrid from 'components/ImageGrid'
-import Description from './Description'
-import Buttons from './Buttons'
 import { ImageIcon } from 'assets/svgs'
+import ImageGrid from 'components/ImageGrid'
+import Modal from 'components/Modal'
+import Description from './Description'
 import styles from './search.module.scss'
 
 const Search = () => {
@@ -91,11 +89,11 @@ const Search = () => {
             </label>
           )}
         </div>
-        {imageSrc ? (
+        {/* {imageSrc ? (
           <Buttons status={status} inputRef={inputRef} searchWord={searchWord} />
         ) : (
           <Button value='샘플 이미지 사용하기' buttonStyle='secondary' size='fullWidth' onClick={openModal} />
-        )}
+        )} */}
       </form>
       {isModalOpen && (
         <Modal closeModal={closeModal} title='샘플 이미지 선택하기'>

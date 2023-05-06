@@ -1,0 +1,33 @@
+@use '/src/styles/constants/colors';
+
+.buttonWrapper {
+  display: flex;
+  padding: 10px 20px;
+
+  button + button {
+    margin-left: 10px;
+  }
+}
+
+.accountItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & + & {
+    margin-top: 16px;
+  }
+
+  :first-child {
+    line-height: 1.5;
+    text-align: start;
+
+    span {
+      font-weight: 700;
+    }
+
+    .account {
+      color: colors.$GRAY3;
+    }
+  }
+}
