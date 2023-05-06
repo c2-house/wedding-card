@@ -21,14 +21,10 @@
     }
   }
 
-  h1 {
-    font-size: 20px;
-    font-weight: 500;
-  }
-
+  h1,
   h2 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 700;
   }
 
   p {
@@ -38,7 +34,7 @@
   }
 
   strong {
-    font-weight: 500;
+    font-weight: 700;
     color: colors.$PRIMARY;
   }
 
@@ -46,7 +42,7 @@
     display: block;
     margin: 16px 0 24px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 700;
     color: colors.$PRIMARY;
     text-decoration: none;
     transition: color 0.2s ease-in-out;
@@ -54,20 +50,6 @@
     &:hover {
       color: colors.$PRIMARY_PRESSED;
       text-decoration: underline;
-    }
-  }
-
-  @include responsive.after(SD) {
-    h1 {
-      font-size: 30px;
-    }
-
-    h2 {
-      font-size: 22px;
-    }
-
-    p {
-      font-size: 18px;
     }
   }
 }
@@ -82,16 +64,6 @@
   background-position: center;
   background-size: cover;
 
-  @include responsive.after(SD) {
-    height: 400px;
-    margin-top: sizes.$GNB_HEIGHT;
-  }
-
-  @include responsive.after(LD) {
-    margin: 0 20px;
-    margin-top: sizes.$GNB_HEIGHT;
-  }
-
   .textWrapper {
     width: 100%;
     height: fit-content;
@@ -103,19 +75,6 @@
       margin-top: 12px;
       font-size: 16px;
       color: colors.$GRAY1;
-    }
-
-    @include responsive.after(SD) {
-      bottom: 200px;
-      padding: 30px 50px;
-
-      p {
-        font-size: 20px;
-      }
-    }
-
-    @include responsive.after(LD) {
-      right: 40px;
     }
   }
 }

@@ -41,7 +41,7 @@
   }
 
   a {
-    font-weight: 500;
+    font-weight: 700;
     color: colors.$GRAY1;
 
     &::after {
@@ -62,47 +62,6 @@
     &::after {
       transition: transform 0.2s;
       transform: scale(1);
-    }
-  }
-}
-
-@include responsive.after(SD) {
-  .gnb {
-    border-bottom: 1px solid colors.$GRAYD;
-  }
-
-  .headerWrapper {
-    display: flex;
-    align-items: flex-end;
-    width: 100%;
-    max-width: sizes.$MAX_WIDTH;
-    height: sizes.$GNB_HEIGHT;
-    padding: 0 20px;
-    margin: 0 auto;
-
-    .logoWrapper,
-    .navBar {
-      height: 100%;
-      border: none;
-    }
-
-    .logoWrapper {
-      margin-right: 40px;
-
-      svg {
-        height: 24px;
-      }
-    }
-
-    ul {
-      height: 100%;
-
-      li {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        font-size: 18px;
-      }
     }
   }
 }
