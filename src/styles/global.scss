@@ -8,8 +8,8 @@
   padding: sizes.$GNB_HEIGHT_M 20px 20px;
   margin: 0 auto;
 
-  @include responsive.after(SD) {
-    min-height: 100vh;
-    padding-top: sizes.$GNB_HEIGHT;
-  }
+  // @include responsive.after(SD) {
+  //   min-height: 100vh;
+  //   padding-top: sizes.$GNB_HEIGHT;
+  // }
 }

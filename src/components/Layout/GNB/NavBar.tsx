@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom'
 import cx from 'classnames'
+import { NavLink } from 'react-router-dom'
 
 import styles from './gnb.module.scss'
 
@@ -14,8 +14,8 @@ const navList: INavItem[] = [
     title: '홈',
   },
   {
-    to: 'search',
-    title: '이미지 검색',
+    to: 'invitation',
+    title: '청첩장',
   },
   {
     to: 'maps',

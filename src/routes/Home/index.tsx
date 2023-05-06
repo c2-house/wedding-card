@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import Button from 'components/Button'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,7 +7,7 @@ const Home = () => {
   const navigate = useNavigate()
 
   return (
-    <div className={cx('pageContainer', styles.homepage)}>
+    <div className={styles.homepage}>
       <div className={styles.banner}>
         <div className={styles.textWrapper}>
           <h1>정민채 & 고은채</h1>
@@ -25,7 +24,7 @@ const Home = () => {
         소중한 분들을 초대합니다.
       </p>
       <div className={styles.buttonWrapper}>
-        <Button value='초대장 보기' size='fullWidth' onClick={() => navigate('/invitation')} />
+        <Button value='청첩장 보기' size='fullWidth' onClick={() => navigate('/invitation')} />
       </div>
     </div>
   )

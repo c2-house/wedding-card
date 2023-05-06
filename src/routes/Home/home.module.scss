@@ -6,8 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  padding: 0;
+  height: calc(100vh - sizes.$GNB_HEIGHT_M);
   color: colors.$GRAY1;
 
   .description {
@@ -79,7 +78,6 @@
   align-items: center;
   justify-content: flex-end;
   height: 65vh;
-  margin-top: sizes.$GNB_HEIGHT_M;
   background-image: url('/assets/images/IMG_0433.jpg');
   background-position: center;
   background-size: cover;
