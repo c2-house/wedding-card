@@ -1,4 +1,4 @@
-import styles from './invitation.module.scss'
+import styles from './welcome.module.scss'
 
 const Welcome = () => {
   return (

@@ -4,43 +4,10 @@ section {
   margin-top: 20px;
 
   h2 {
-    padding: 10px 0;
-    margin-bottom: 10px;
+    padding: 16px 0;
     font-size: 20px;
     font-weight: 700;
     color: colors.$PRIMARY;
     text-align: center;
-  }
-}
-
-.welcome {
-  p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 34px;
-    color: colors.$GRAY3;
-    text-align: center;
-  }
-
-  .host {
-    padding: 40px 80px;
-    margin-top: 20px;
-    font-size: 14px;
-    background-color: colors.$SECONDARY;
-
-    & > div {
-      display: flex;
-      justify-content: space-between;
-
-      + div {
-        margin-top: 10px;
-      }
-    }
-
-    span {
-      font-size: 18px;
-      font-weight: 700;
-      color: colors.$GRAY1;
-    }
   }
 }
