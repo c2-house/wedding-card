@@ -12,46 +12,6 @@
   .description {
     padding: 0 20px;
   }
-
-  section {
-    margin: 40px 0 20px;
-
-    + section {
-      margin-top: 60px;
-    }
-  }
-
-  h1,
-  h2 {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  p {
-    margin-top: 16px;
-    line-height: 1.5;
-    color: colors.$GRAY3;
-  }
-
-  strong {
-    font-weight: 700;
-    color: colors.$PRIMARY;
-  }
-
-  a {
-    display: block;
-    margin: 16px 0 24px;
-    font-size: 18px;
-    font-weight: 700;
-    color: colors.$PRIMARY;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-
-    &:hover {
-      color: colors.$PRIMARY_PRESSED;
-      text-decoration: underline;
-    }
-  }
 }
 
 .banner {
@@ -64,22 +24,36 @@
   background-position: center;
   background-size: cover;
 
-  .textWrapper {
+  .infoText {
     width: 100%;
     height: fit-content;
-    padding: 20px;
+    padding: 20px 20px 10px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 60%);
+    background: linear-gradient(rgba(255, 255, 255, 50%), rgba(255, 255, 255, 100%));
+
+    :first-child {
+      font-size: 16px;
+      font-weight: 400;
+      color: colors.$GRAY3;
+
+      span {
+        font-size: 20px;
+        font-weight: 700;
+        color: colors.$GRAY1;
+      }
+    }
 
     p {
       margin-top: 12px;
-      font-size: 16px;
+      line-height: 1.5;
       color: colors.$GRAY1;
     }
   }
 }
 
 .inviteText {
+  line-height: 1.5;
+  color: colors.$GRAY3;
   text-align: center;
 }
 

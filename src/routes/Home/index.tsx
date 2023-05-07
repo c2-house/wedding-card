@@ -9,8 +9,10 @@ const Home = () => {
   return (
     <div className={styles.homepage}>
       <div className={styles.banner}>
-        <div className={styles.textWrapper}>
-          <h1>정민채 & 고은채</h1>
+        <div className={styles.infoText}>
+          <div>
+            신랑 <span>정민채</span> & 신부 <span>고은채</span>
+          </div>
           <p>
             2023. 6. 10 (토) 오후 4시
             <br />
