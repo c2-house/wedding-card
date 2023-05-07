@@ -19,11 +19,11 @@ const Location = () => {
       scrollWheel: false,
     }
     const map = new naver.maps.Map(mapElement.current, mapOptions)
+    // eslint-disable-next-line unused-imports/no-unused-vars
     const marker = new naver.maps.Marker({
       position: location,
       map,
     })
-    console.log('hello marker', marker)
   }, [])
 
   return (
