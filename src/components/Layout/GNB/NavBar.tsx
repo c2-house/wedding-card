@@ -18,6 +18,10 @@ const navList: INavItem[] = [
     title: '청첩장',
   },
   {
+    to: 'gallery',
+    title: '갤러리',
+  },
+  {
     to: 'message',
     title: '방명록',
   },
