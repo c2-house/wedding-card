@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 const Location = () => {
-  const mapElement = useRef(null)
+  const mapElement = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!mapElement.current) return
