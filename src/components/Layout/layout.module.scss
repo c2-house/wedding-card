@@ -8,3 +8,15 @@
   padding-top: sizes.$GNB_HEIGHT_M;
   margin: 0 auto;
 }
+
+section {
+  margin-top: 20px;
+
+  h2 {
+    padding: 16px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: colors.$PRIMARY;
+    text-align: center;
+  }
+}

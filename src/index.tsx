@@ -1,15 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { BrowserRouter } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 
 import './styles/index.scss'
-import './styles/global.scss'
 
-import Routes from './routes'
 import reportWebVitals from './reportWebVitals'
+import Routes from './routes'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnMount: false } },
