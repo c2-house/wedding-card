@@ -9,6 +9,7 @@ const Layout = () => {
       <main className={styles.pageContainer}>
         <Outlet />
       </main>
+      {/* TODO: footer 추가 */}
     </>
   )
 }
