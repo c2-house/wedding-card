@@ -12,6 +12,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type']
   onClick?: MouseEventHandler<HTMLButtonElement>
+  props?: any
 }
 
 const Button = ({
@@ -23,6 +24,7 @@ const Button = ({
   className,
   disabled,
   onClick,
+  ...props
 }: IButtonProps) => {
   return (
     <button
@@ -32,6 +34,7 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
       value={value}
+      {...props}
     >
       {text}
     </button>

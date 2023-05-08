@@ -30,4 +30,11 @@
       color: colors.$GRAY3;
     }
   }
+
+  svg {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    fill: colors.$PRIMARY;
+  }
 }

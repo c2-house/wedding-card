@@ -1,7 +1,9 @@
+import { MouseEvent, useEffect, useState } from 'react'
+
+import { ReactComponent as CheckIcon } from 'assets/icons/check.svg'
 import Button from 'components/Button'
 import Modal from 'components/Modal'
 import { useModal } from 'hooks/useModal'
-import { MouseEvent, useState } from 'react'
 import styles from './bankAccount.module.scss'
 
 const side = {
@@ -57,7 +59,12 @@ const accounts: Record<keyof typeof side, Account[]> = {
 
 const BankAccount = () => {
   const [selected, setSelected] = useState<Side>(side.groom)
+  const [copiedPerson, setCopiedPerson] = useState('')
   const { isModalOpen, openModal, closeModal } = useModal()
+
+  useEffect(() => {
+    return () => setCopiedPerson('')
+  }, [isModalOpen])
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     setSelected((e.target as HTMLButtonElement).value as Side)
@@ -65,8 +72,9 @@ const BankAccount = () => {
   }
 
   const handleCopy = (e: MouseEvent<HTMLButtonElement>) => {
-    const text = (e.target as HTMLButtonElement).value
-    navigator.clipboard.writeText(text)
+    const { id, value } = e.target as HTMLButtonElement
+    navigator.clipboard.writeText(value)
+    setCopiedPerson(id)
   }
 
   return (
@@ -88,14 +96,18 @@ const BankAccount = () => {
                   {account.bank} {account.account}
                 </div>
               </div>
-              {/* TODO: 복사하면 체크 아이콘으로 변경 */}
-              <Button
-                text='복사'
-                value={`${account.bank} ${account.account}`}
-                size='small'
-                buttonStyle='ghost'
-                onClick={handleCopy}
-              />
+              {account.name === copiedPerson ? (
+                <CheckIcon />
+              ) : (
+                <Button
+                  id={account.name}
+                  text='복사'
+                  value={`${account.bank} ${account.account}`}
+                  size='small'
+                  buttonStyle='ghost'
+                  onClick={handleCopy}
+                />
+              )}
             </div>
           ))}
         </Modal>
