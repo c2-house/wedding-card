@@ -1,0 +1,60 @@
+@use '/src/styles/constants/colors';
+
+.carousel {
+  position: relative;
+  margin-bottom: 16px;
+  overflow: hidden;
+
+  .images {
+    display: flex;
+    width: fit-content;
+    overflow: auto;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    img {
+      width: 100vw;
+      object-fit: cover;
+    }
+  }
+}
+
+.indicators {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+
+  &.inner {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &.outer {
+    margin-top: 12px;
+
+    & > div {
+      background-color: colors.$GRAYD;
+    }
+  }
+
+  & > div {
+    width: 6px;
+    height: 6px;
+    background-color: colors.$WHITE;
+    border-radius: 50%;
+    opacity: 0.6;
+    transition: 0.3s ease;
+
+    &.active {
+      background-color: colors.$PRIMARY;
+      opacity: 1;
+    }
+  }
+}

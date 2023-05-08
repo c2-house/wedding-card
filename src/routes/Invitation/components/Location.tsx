@@ -3,6 +3,11 @@ import styles from './location.module.scss'
 
 import kakaoIcon from 'assets/icons/kakao_map.png'
 import naverIcon from 'assets/icons/naver_map.png'
+import image1 from 'assets/images/weddinghall_01.jpeg'
+import image2 from 'assets/images/weddinghall_02.jpeg'
+import image3 from 'assets/images/weddinghall_03.jpeg'
+import image4 from 'assets/images/weddinghall_04.jpeg'
+import { ImageCarousel } from 'components/ImageCarousel'
 
 const Location = () => {
   const mapElement = useRef<HTMLDivElement>(null)
@@ -34,7 +39,7 @@ const Location = () => {
     <section>
       <h2>LOCATION</h2>
       <h3 className={styles.location}>아펠가모 공덕</h3>
-      {/* TODO: 예식장 이미지 캐러셀 */}
+      <ImageCarousel images={[image1, image2, image3, image4]} indicatorPosition='outer' />
       <div ref={mapElement} style={{ width: '100%', height: '200px' }} />
       <div className={styles.address}>
         <p>
