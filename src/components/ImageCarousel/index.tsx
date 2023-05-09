@@ -13,7 +13,7 @@ interface Props {
   indicatorPosition?: 'inner' | 'outer'
 }
 
-export const ImageCarousel = ({
+const ImageCarousel = ({
   images,
   intervalTime = 3000,
   delay = 500,
@@ -115,3 +115,5 @@ export const ImageCarousel = ({
     </div>
   )
 }
+
+export default ImageCarousel

@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import styles from './location.module.scss'
 
-import kakaoIcon from 'assets/icons/kakao_map.png'
-import naverIcon from 'assets/icons/naver_map.png'
+import ImageCarousel from 'components/ImageCarousel'
 import image1 from 'assets/images/weddinghall_01.jpeg'
 import image2 from 'assets/images/weddinghall_02.jpeg'
 import image3 from 'assets/images/weddinghall_03.jpeg'
 import image4 from 'assets/images/weddinghall_04.jpeg'
-import { ImageCarousel } from 'components/ImageCarousel'
+import kakaoIcon from 'assets/icons/kakao_map.png'
+import naverIcon from 'assets/icons/naver_map.png'
 
 const Location = () => {
   const mapElement = useRef<HTMLDivElement>(null)
@@ -49,7 +49,7 @@ const Location = () => {
         </p>
         <div className={styles.mapIcons}>
           <a href='https://naver.me/GSUnQUY2' target='_blank' rel='noreferrer'>
-            <img src={naverIcon} alt='네이버 지도' className={styles.naver} />
+            <img src={naverIcon} alt='네이버 지도' />
           </a>
           <a href='http://kko.to/_ZFVcBHhXC' target='_blank' rel='noreferrer'>
             <img src={kakaoIcon} alt='카카오 지도' />
