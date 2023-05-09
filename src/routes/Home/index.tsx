@@ -1,10 +1,12 @@
-import Button from 'components/Button'
 import { useNavigate } from 'react-router-dom'
 
+import Button from 'components/Button'
+import { useScrollTo } from 'hooks/useScrollTo'
 import styles from './home.module.scss'
 
 const Home = () => {
   const navigate = useNavigate()
+  useScrollTo(0, 0)
 
   return (
     <div className={styles.homepage}>

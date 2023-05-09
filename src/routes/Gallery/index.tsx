@@ -24,8 +24,11 @@ import image21 from 'assets/images/IMG_0441.jpg'
 import image22 from 'assets/images/IMG_0450.jpg'
 import image23 from 'assets/images/IMG_0521.jpg'
 import ImageGrid from 'components/ImageGrid'
+import { useScrollTo } from 'hooks/useScrollTo'
 
 const Gallery = () => {
+  useScrollTo(0, 0)
+
   return (
     <section>
       <h2>GALLERY</h2>
