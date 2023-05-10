@@ -10,10 +10,10 @@ export interface IImageGridProps {
 const ImageGrid = ({ imageList, handleImageClick }: IImageGridProps) => {
   return (
     <ul className={styles.imageList}>
-      {imageList.map((image) => (
+      {imageList.map((image, index) => (
         <li key={image}>
           <button type='button' onClick={handleImageClick}>
-            <img src={image} alt='' />
+            <img src={image} alt='' data-index={index} />
           </button>
         </li>
       ))}

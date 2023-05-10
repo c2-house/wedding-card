@@ -11,6 +11,9 @@ interface Props {
   threshold?: number
   hasIndicator?: boolean
   indicatorPosition?: 'inner' | 'outer'
+  autoPlay?: boolean
+  infinite?: boolean
+  startIndex?: number
 }
 
 const ImageCarousel = ({
@@ -20,8 +23,11 @@ const ImageCarousel = ({
   threshold = 0.25,
   hasIndicator = true,
   indicatorPosition = 'inner',
+  autoPlay = true,
+  infinite = true,
+  startIndex = 0,
 }: Props) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(startIndex)
   const [isMoving, setIsMoving] = useState(false)
   const [isTouching, setIsTouching] = useState(false)
   const [touchStart, setTouchStart] = useState(0)
@@ -29,7 +35,7 @@ const ImageCarousel = ({
   const [translateX, setTranslateX] = useState(`calc(-100vw * ${currentIndex + 1})`)
 
   useEffect(() => {
-    if (isTouching) return
+    if (!autoPlay || isTouching) return
     const interval = setInterval(() => {
       setIsMoving(true)
       move('NEXT')
@@ -71,6 +77,7 @@ const ImageCarousel = ({
     setCurrentIndex(index)
     setTranslateX(`calc(-100vw * ${index + 1})`)
 
+    if (!infinite && (index === 0 || index === images.length - 1)) return
     if (index === -1 || index === images.length) {
       const newIndex = index === -1 ? images.length - 1 : 0
       setCurrentIndex(newIndex)
@@ -99,11 +106,11 @@ const ImageCarousel = ({
           transition: isMoving ? `transform ${delay}ms ease` : '',
         }}
       >
-        <img src={images[images.length - 1]} alt='' />
+        {infinite && <img src={images[images.length - 1]} alt='' />}
         {images.map((image) => (
           <img key={`image-${image}`} src={image} alt='' />
         ))}
-        <img src={images[0]} alt='' />
+        {infinite && <img src={images[0]} alt='' />}
       </div>
       {hasIndicator && (
         <div className={cx(styles.indicators, styles[indicatorPosition])}>

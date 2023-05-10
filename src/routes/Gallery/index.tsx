@@ -6,7 +6,6 @@ import ImageViewer from 'components/ImageViewer'
 
 import gif01 from 'assets/images/GIF_01.gif'
 import gif02 from 'assets/images/GIF_02.gif'
-import image01 from 'assets/images/IMG_0012.jpg'
 import image02 from 'assets/images/IMG_0026.jpg'
 import image03 from 'assets/images/IMG_0043.jpg'
 import image04 from 'assets/images/IMG_0078.jpg'
@@ -30,51 +29,49 @@ import image21 from 'assets/images/IMG_0441.jpg'
 import image22 from 'assets/images/IMG_0450.jpg'
 import image23 from 'assets/images/IMG_0521.jpg'
 
+const imageList = [
+  image02,
+  image03,
+  image04,
+  image05,
+  image06,
+  image07,
+  image08,
+  image09,
+  image10,
+  image11,
+  image12,
+  image13,
+  image14,
+  image15,
+  image16,
+  image17,
+  image18,
+  image19,
+  image20,
+  image21,
+  image22,
+  image23,
+  gif01,
+  gif02,
+]
+
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState('')
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const { isModalOpen, openModal, closeModal } = useModal()
 
   useScrollTo(0, 0)
 
   const handleImageClick = (e: MouseEvent) => {
-    setSelectedImage((e.target as HTMLImageElement).getAttribute('src') as string)
+    setSelectedImageIndex(Number((e.target as HTMLImageElement).dataset.index))
     openModal()
   }
 
   return (
     <section>
       <h2>GALLERY</h2>
-      <ImageGrid
-        imageList={[
-          image01,
-          image02,
-          image03,
-          image04,
-          image05,
-          image06,
-          image07,
-          image08,
-          image09,
-          image10,
-          image11,
-          image12,
-          image13,
-          image14,
-          image15,
-          image16,
-          image17,
-          image18,
-          image19,
-          image20,
-          image21,
-          image22,
-          image23,
-          gif01,
-          gif02,
-        ]}
-        handleImageClick={handleImageClick}
-      />
-      {isModalOpen && <ImageViewer imageUrl={selectedImage} close={closeModal} />}
+      <ImageGrid imageList={imageList} handleImageClick={handleImageClick} />
+      {isModalOpen && <ImageViewer imageList={imageList} currentIndex={selectedImageIndex} close={closeModal} />}
     </section>
   )
 }

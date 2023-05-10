@@ -40,7 +40,7 @@ const Location = () => {
       <h2>LOCATION</h2>
       <h3 className={styles.location}>아펠가모 공덕</h3>
       <ImageCarousel images={[image1, image2, image3, image4]} indicatorPosition='outer' />
-      <div ref={mapElement} style={{ width: '100%', height: '200px' }} />
+      <div ref={mapElement} className={styles.map} />
       <div className={styles.address}>
         <p>
           서울특별시 마포구 마포대로 92

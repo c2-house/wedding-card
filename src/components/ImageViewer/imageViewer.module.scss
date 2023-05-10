@@ -9,9 +9,27 @@
   left: 0;
   z-index: levels.$MODAL;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: colors.$BLACK;
+  background-color: colors.$WHITE;
+
+  .navBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: colors.$GRAY9;
+    }
+  }
 
   img {
     width: 100%;
