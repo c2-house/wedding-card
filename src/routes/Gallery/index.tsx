@@ -1,3 +1,9 @@
+import { MouseEvent, useState } from 'react'
+import { useScrollTo } from 'hooks/useScrollTo'
+import { useModal } from 'hooks/useModal'
+import ImageGrid from 'components/ImageGrid'
+import ImageViewer from 'components/ImageViewer'
+
 import gif01 from 'assets/images/GIF_01.gif'
 import gif02 from 'assets/images/GIF_02.gif'
 import image01 from 'assets/images/IMG_0012.jpg'
@@ -23,11 +29,17 @@ import image20 from 'assets/images/IMG_0433.jpg'
 import image21 from 'assets/images/IMG_0441.jpg'
 import image22 from 'assets/images/IMG_0450.jpg'
 import image23 from 'assets/images/IMG_0521.jpg'
-import ImageGrid from 'components/ImageGrid'
-import { useScrollTo } from 'hooks/useScrollTo'
 
 const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState('')
+  const { isModalOpen, openModal, closeModal } = useModal()
+
   useScrollTo(0, 0)
+
+  const handleImageClick = (e: MouseEvent) => {
+    setSelectedImage((e.target as HTMLImageElement).getAttribute('src') as string)
+    openModal()
+  }
 
   return (
     <section>
@@ -60,7 +72,9 @@ const Gallery = () => {
           gif01,
           gif02,
         ]}
+        handleImageClick={handleImageClick}
       />
+      {isModalOpen && <ImageViewer imageUrl={selectedImage} close={closeModal} />}
     </section>
   )
 }
