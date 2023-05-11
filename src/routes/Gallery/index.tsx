@@ -57,13 +57,16 @@ const imageList = [
 ]
 
 const Gallery = () => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentUrl, setCurrentUrl] = useState(imageList[0])
   const { isModalOpen, openModal, closeModal } = useModal()
 
   useScrollTo(0, 0)
 
   const handleImageClick = (e: MouseEvent) => {
-    setSelectedImageIndex(Number((e.target as HTMLImageElement).dataset.index))
+    const index = Number((e.target as HTMLImageElement).dataset.index)
+    setCurrentIndex(index)
+    setCurrentUrl(imageList[index])
     openModal()
   }
 
@@ -71,7 +74,16 @@ const Gallery = () => {
     <section>
       <h2>GALLERY</h2>
       <ImageGrid imageList={imageList} handleImageClick={handleImageClick} />
-      {isModalOpen && <ImageViewer imageList={imageList} currentIndex={selectedImageIndex} close={closeModal} />}
+      {isModalOpen && (
+        <ImageViewer
+          currentUrl={currentUrl}
+          setCurrentUrl={setCurrentUrl}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+          imageList={imageList}
+          close={closeModal}
+        />
+      )}
     </section>
   )
 }

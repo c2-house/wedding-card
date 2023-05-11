@@ -12,7 +12,6 @@ interface Props {
   hasIndicator?: boolean
   indicatorPosition?: 'inner' | 'outer'
   autoPlay?: boolean
-  infinite?: boolean
   startIndex?: number
 }
 
@@ -24,7 +23,6 @@ const ImageCarousel = ({
   hasIndicator = true,
   indicatorPosition = 'inner',
   autoPlay = true,
-  infinite = true,
   startIndex = 0,
 }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(startIndex)
@@ -77,7 +75,6 @@ const ImageCarousel = ({
     setCurrentIndex(index)
     setTranslateX(`calc(-100vw * ${index + 1})`)
 
-    if (!infinite && (index === 0 || index === images.length - 1)) return
     if (index === -1 || index === images.length) {
       const newIndex = index === -1 ? images.length - 1 : 0
       setCurrentIndex(newIndex)
@@ -106,11 +103,11 @@ const ImageCarousel = ({
           transition: isMoving ? `transform ${delay}ms ease` : '',
         }}
       >
-        {infinite && <img src={images[images.length - 1]} alt='' />}
+        <img src={images[images.length - 1]} alt='' />
         {images.map((image) => (
           <img key={`image-${image}`} src={image} alt='' />
         ))}
-        {infinite && <img src={images[0]} alt='' />}
+        <img src={images[0]} alt='' />
       </div>
       {hasIndicator && (
         <div className={cx(styles.indicators, styles[indicatorPosition])}>

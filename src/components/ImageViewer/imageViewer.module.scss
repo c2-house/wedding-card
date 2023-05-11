@@ -14,25 +14,43 @@
   justify-content: center;
   background-color: colors.$WHITE;
 
-  .navBar {
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .closeButton {
     position: fixed;
     top: 0;
-    right: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 10px;
-
-    svg {
-      width: 30px;
-      height: 30px;
-      fill: colors.$GRAY9;
-    }
+    width: 100%;
+    padding: 16px;
   }
 
-  img {
+  .controller {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    object-fit: contain;
+    padding: 16px;
+    color: colors.$GRAY3;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: colors.$GRAY9;
+    }
   }
 }
