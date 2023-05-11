@@ -1,6 +1,6 @@
 import cx from 'classnames'
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import styles from './gnb.module.scss'
 
@@ -32,6 +32,17 @@ const ITEM_WIDTH = 100 / navList.length
 
 const NavBar = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const location = useLocation()
+
+  useEffect(() => {
+    const getCurrentIndex = () => {
+      const path = location.pathname.split('/')[1]
+      const index = navList.findIndex((item) => item.to === path)
+      return index === -1 ? 0 : index
+    }
+
+    setCurrentIndex(getCurrentIndex())
+  }, [location.pathname])
 
   return (
     <nav className={styles.navBar}>
