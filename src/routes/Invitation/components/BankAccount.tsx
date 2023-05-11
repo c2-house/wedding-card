@@ -45,20 +45,20 @@ const accounts: Record<keyof typeof side, Account[]> = {
     {
       person: '아버지',
       name: '고용식',
-      bank: '우리은행',
-      account: '1002-041-422095',
+      bank: 'SC제일은행',
+      account: '110-20-457947',
     },
     {
       person: '어머니',
       name: '김성희',
-      bank: '우리은행',
-      account: '1002-041-422095',
+      bank: 'SC제일은행',
+      account: '304-20-104621',
     },
   ],
 }
 
 const BankAccount = () => {
-  const [selected, setSelected] = useState<Side>(side.groom)
+  const [selectedSide, setSelectedSide] = useState<Side>(side.groom)
   const [copiedPerson, setCopiedPerson] = useState('')
   const { isModalOpen, openModal, closeModal } = useModal()
 
@@ -67,7 +67,7 @@ const BankAccount = () => {
   }, [isModalOpen])
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    setSelected((e.target as HTMLButtonElement).value as Side)
+    setSelectedSide((e.target as HTMLButtonElement).value as Side)
     openModal()
   }
 
@@ -85,8 +85,8 @@ const BankAccount = () => {
         <Button text={side.bride} value={side.bride} size='fullWidth' buttonStyle='secondary' onClick={handleClick} />
       </div>
       {isModalOpen && (
-        <Modal title={selected === side.groom ? side.groom : side.bride} closeModal={closeModal}>
-          {accounts[selected === side.groom ? 'groom' : 'bride'].map((account) => (
+        <Modal title={selectedSide === side.groom ? side.groom : side.bride} closeModal={closeModal}>
+          {accounts[selectedSide === side.groom ? 'groom' : 'bride'].map((account) => (
             <div key={account.name} className={styles.accountItem}>
               <div>
                 <div>
