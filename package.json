@@ -1,5 +1,5 @@
 {
-  "name": "wedding-card",
+  "name": "chaechae-wedding",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -34,10 +34,8 @@
     "classnames": "^2.3.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-query": "^3.39.1",
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
-    "recoil": "^0.7.3-alpha.2",
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
@@ -46,7 +44,6 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/store": "^2.0.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.14.0",
     "eslint-config-airbnb": "^19.0.4",
