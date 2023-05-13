@@ -1,13 +1,19 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import cx from 'classnames'
 
-import Button from 'components/Button'
+import { postCount } from 'services/home'
 import { useScrollTo } from 'hooks/useScrollTo'
+import Button from 'components/Button'
 import styles from './home.module.scss'
 
 const Home = () => {
   const navigate = useNavigate()
   useScrollTo(0, 0)
+
+  useEffect(() => {
+    postCount()
+  }, [])
 
   return (
     <div className={styles.homepage}>
