@@ -1,9 +1,9 @@
 import { MouseEvent, useEffect, useState } from 'react'
 
-import { ReactComponent as CheckIcon } from 'assets/icons/check.svg'
-import Button from 'components/Button'
-import Modal from 'components/Modal'
 import { useModal } from 'hooks/useModal'
+import Modal from 'components/Modal'
+import Button from 'components/Button'
+import { ReactComponent as CheckIcon } from 'assets/icons/check.svg'
 import styles from './bankAccount.module.scss'
 
 const side = {
