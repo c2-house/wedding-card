@@ -39,7 +39,7 @@ const ImageViewer = ({
         <button className={styles.closeButton} type='button' onClick={close}>
           <CloseIcon />
         </button>
-        <img src={currentUrl} alt='' />
+        <div className={styles.image} style={{ backgroundImage: `url(${currentUrl})` }} />
         <div className={styles.controller}>
           <button type='button' onClick={handlePrevClick}>
             <LeftIcon />

@@ -1,5 +1,4 @@
 import { MouseEvent } from 'react'
-
 import styles from './imageGrid.module.scss'
 
 export interface IImageGridProps {
@@ -13,7 +12,7 @@ const ImageGrid = ({ imageList, handleImageClick }: IImageGridProps) => {
       {imageList.map((image, index) => (
         <li key={image}>
           <button type='button' onClick={handleImageClick}>
-            <img src={image} alt='' data-index={index} />
+            <div className={styles.image} style={{ backgroundImage: `url(${image})` }} data-index={index} />
           </button>
         </li>
       ))}

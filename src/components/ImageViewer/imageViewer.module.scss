@@ -14,9 +14,12 @@
   justify-content: center;
   background-color: colors.$WHITE;
 
-  img {
+  .image {
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 
   .closeButton {

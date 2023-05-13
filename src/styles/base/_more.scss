@@ -1,3 +1,4 @@
+/* stylelint-disable property-no-vendor-prefix */
 /* stylelint-disable value-no-vendor-prefix */
 
 * {
@@ -23,9 +24,13 @@
 }
 
 img {
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   border: 0;
-  -webkit-user-drag: none;
 }
 
 a {
@@ -42,7 +47,7 @@ textarea {
 
 input,
 button {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 input::-webkit-contacts-auto-fill-button {
