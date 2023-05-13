@@ -23,30 +23,30 @@ import image15 from 'assets/images/IMG_0337.jpg'
 import image16 from 'assets/images/IMG_0348.jpg'
 import image17 from 'assets/images/IMG_0374.jpg'
 import image18 from 'assets/images/IMG_0383.jpg'
-import image19 from 'assets/images/IMG_0415.jpg'
+import image19 from 'assets/images/IMG_0367.jpg'
 import image20 from 'assets/images/IMG_0433.jpg'
 import image21 from 'assets/images/IMG_0441.jpg'
 import image22 from 'assets/images/IMG_0450.jpg'
 import image23 from 'assets/images/IMG_0521.jpg'
 
 const imageList = [
-  image02,
   image03,
   image04,
   image05,
   image06,
+  image02,
   image07,
-  image08,
   image09,
-  image10,
+  image08,
   image11,
   image12,
   image13,
   image14,
+  image10,
   image15,
-  image16,
-  image17,
   image18,
+  image17,
+  image16,
   image19,
   image20,
   image21,
