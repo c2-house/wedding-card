@@ -54,7 +54,7 @@ const Message = () => {
 
   return (
     <section>
-      <h2>방명록</h2>
+      <h2>MESSAGE</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div>
           <input

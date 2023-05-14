@@ -20,7 +20,7 @@ const navList: INavItem[] = [
   },
   {
     to: 'gallery',
-    title: '갤러리',
+    title: '사진첩',
   },
   {
     to: 'message',
