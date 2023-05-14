@@ -15,7 +15,7 @@ const Location = () => {
   useEffect(() => {
     if (!mapElement.current) return
 
-    const location = new naver.maps.LatLng(37.5427105, 126.9516296)
+    const location = new naver.maps.LatLng(37.5422, 126.9526)
     const mapOptions: naver.maps.MapOptions = {
       center: location,
       zoom: 16,

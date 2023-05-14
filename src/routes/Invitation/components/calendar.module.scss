@@ -4,20 +4,28 @@
   padding: 14px 35px 35px;
   background-color: colors.$SECONDARY;
 
-  .calendar {
-    padding: 20px;
+  .date {
+    margin-bottom: 16px;
     font-size: 18px;
+    font-weight: 700;
+    color: colors.$GRAY1;
+    text-align: center;
+  }
+
+  .calendar {
+    padding: 20px 0;
+    color: colors.$GRAY1;
     text-align: center;
     background-color: colors.$WHITE;
   }
 
   .ym {
     margin-bottom: 16px;
+    font-size: 18px;
     font-weight: 700;
   }
 
   .dayOfWeek {
-    font-size: 16px;
     color: colors.$GRAY3;
   }
 

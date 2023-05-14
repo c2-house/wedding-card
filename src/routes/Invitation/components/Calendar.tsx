@@ -4,6 +4,7 @@ const Calendar = () => {
   return (
     <section className={styles.section}>
       <h2>DATE</h2>
+      <p className={styles.date}>2023. 6. 10 (토) 오후 4시</p>
       <div className={styles.calendar}>
         <div className={styles.ym}>2023.06</div>
         <table>
