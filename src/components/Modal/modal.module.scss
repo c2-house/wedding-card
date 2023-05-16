@@ -1,5 +1,6 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/constants/levels';
+@use '/src/styles/constants/sizes';
 
 .background {
   position: fixed;
@@ -17,7 +18,7 @@
 
 .modalContent {
   width: 90%;
-  max-width: 800px;
+  max-width: sizes.$MAX_WIDTH;
   overflow: hidden;
   text-align: center;
   background: colors.$WHITE;
