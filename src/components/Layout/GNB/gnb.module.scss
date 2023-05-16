@@ -1,13 +1,16 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/constants/levels';
+@use '/src/styles/constants/sizes';
 
 .gnb {
   position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
+  left: 50%;
   z-index: levels.$GNB;
+  width: 100%;
+  max-width: sizes.$MAX_WIDTH;
   background-color: colors.$WHITE;
+  transform: translateX(-50%);
 }
 
 .logoWrapper {
