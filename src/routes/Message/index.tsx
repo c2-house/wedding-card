@@ -91,7 +91,7 @@ const Message = () => {
             <div className={styles.messageHeader}>
               <div>
                 <span>{message.name}</span>
-                <span>{message.created_at.slice(0, 10)}</span>
+                {/* <span>{message.created_at.slice(0, 10)}</span> */}
               </div>
               <button type='button' value={message.id} onClick={handleDeleteClick}>
                 <DeleteIcon />
