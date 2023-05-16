@@ -5,32 +5,21 @@ import { ReactComponent as RightIcon } from 'assets/icons/chevron_right.svg'
 import styles from './imageViewer.module.scss'
 
 interface ImageViewerProps {
-  currentUrl: string
-  setCurrentUrl: (url: string) => void
+  imageList: string[]
   currentIndex: number
   setCurrentIndex: (index: number) => void
-  imageList: string[]
   close: () => void
 }
 
-const ImageViewer = ({
-  currentUrl,
-  setCurrentUrl,
-  currentIndex,
-  setCurrentIndex,
-  imageList,
-  close,
-}: ImageViewerProps) => {
+const ImageViewer = ({ imageList, currentIndex, setCurrentIndex, close }: ImageViewerProps) => {
   const handlePrevClick = () => {
     const index = currentIndex === 0 ? imageList.length - 1 : currentIndex - 1
     setCurrentIndex(index)
-    setCurrentUrl(imageList[index])
   }
 
   const handleNextClick = () => {
     const index = currentIndex === imageList.length - 1 ? 0 : currentIndex + 1
     setCurrentIndex(index)
-    setCurrentUrl(imageList[index])
   }
 
   return (
@@ -39,7 +28,7 @@ const ImageViewer = ({
         <button className={styles.closeButton} type='button' onClick={close}>
           <CloseIcon />
         </button>
-        <div className={styles.image} style={{ backgroundImage: `url(${currentUrl})` }} />
+        <div className={styles.image} style={{ backgroundImage: `url(${imageList[currentIndex]})` }} />
         <div className={styles.controller}>
           <button type='button' onClick={handlePrevClick}>
             <LeftIcon />

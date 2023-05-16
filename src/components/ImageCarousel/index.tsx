@@ -12,7 +12,6 @@ interface Props {
   hasIndicator?: boolean
   indicatorPosition?: 'inner' | 'outer'
   autoPlay?: boolean
-  startIndex?: number
 }
 
 const ImageCarousel = ({
@@ -23,9 +22,8 @@ const ImageCarousel = ({
   hasIndicator = true,
   indicatorPosition = 'inner',
   autoPlay = true,
-  startIndex = 0,
 }: Props) => {
-  const [currentIndex, setCurrentIndex] = useState(startIndex)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [isMoving, setIsMoving] = useState(false)
   const [isTouching, setIsTouching] = useState(false)
   const [touchStart, setTouchStart] = useState(0)
