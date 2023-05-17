@@ -79,6 +79,7 @@ const Gallery = () => {
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
           close={closeModal}
+          hasButton={false}
         >
           <ImageCarousel
             images={imageList}
