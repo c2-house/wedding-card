@@ -9,9 +9,10 @@ interface ImageViewerProps {
   currentIndex: number
   setCurrentIndex: (index: number) => void
   close: () => void
+  children?: React.ReactNode
 }
 
-const ImageViewer = ({ imageList, currentIndex, setCurrentIndex, close }: ImageViewerProps) => {
+const ImageViewer = ({ imageList, currentIndex, setCurrentIndex, close, children }: ImageViewerProps) => {
   const handlePrevClick = () => {
     const index = currentIndex === 0 ? imageList.length - 1 : currentIndex - 1
     setCurrentIndex(index)
@@ -28,7 +29,7 @@ const ImageViewer = ({ imageList, currentIndex, setCurrentIndex, close }: ImageV
         <button className={styles.closeButton} type='button' onClick={close}>
           <CloseIcon />
         </button>
-        <div className={styles.image} style={{ backgroundImage: `url(${imageList[currentIndex]})` }} />
+        {children || <div className={styles.image} style={{ backgroundImage: `url(${imageList[currentIndex]})` }} />}
         <div className={styles.controller}>
           <button type='button' onClick={handlePrevClick}>
             <LeftIcon />

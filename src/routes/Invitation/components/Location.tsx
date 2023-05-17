@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './location.module.scss'
 
 import ImageCarousel from 'components/ImageCarousel'
@@ -24,6 +24,7 @@ const addressText = [
 ]
 
 const Location = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
   const mapElement = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -55,7 +56,14 @@ const Location = () => {
     <section>
       <h2>LOCATION</h2>
       <h3 className={styles.location}>아펠가모 공덕</h3>
-      <ImageCarousel images={[image1, image2, image3]} indicatorPosition='outer' intervalTime={4000} delay={800} />
+      <ImageCarousel
+        images={[image1, image2, image3]}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+        indicatorPosition='outer'
+        intervalTime={4000}
+        delay={800}
+      />
       <div ref={mapElement} className={styles.map} />
       <div className={styles.address}>
         {addressText.map((text) => (

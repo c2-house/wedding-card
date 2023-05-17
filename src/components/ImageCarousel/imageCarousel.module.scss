@@ -2,6 +2,7 @@
 
 .carousel {
   position: relative;
+  width: 100vw;
   overflow: hidden;
 
   .images {
@@ -16,6 +17,10 @@
     img {
       width: 100vw;
       object-fit: contain;
+    }
+
+    &.padding > img {
+      padding: 0 5px;
     }
   }
 }
