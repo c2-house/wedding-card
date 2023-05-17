@@ -44,6 +44,14 @@
     padding: 16px;
     color: colors.$GRAY1;
 
+    & > div {
+      padding: 8px 16px;
+      color: colors.$WHITE;
+      background-color: colors.$BLACK;
+      border-radius: 16px;
+      opacity: 0.5;
+    }
+
     button {
       padding: 8px;
       margin: 0 10px;

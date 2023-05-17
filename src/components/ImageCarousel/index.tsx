@@ -1,34 +1,40 @@
-import cx from 'classnames'
 import { TouchEvent, useEffect, useState } from 'react'
+import cx from 'classnames'
 import styles from './imageCarousel.module.scss'
 
 type Direction = 'PREV' | 'NEXT'
 
 interface Props {
   images: string[]
+  currentIndex: number
+  setCurrentIndex: (index: number) => void
   intervalTime?: number
   delay?: number
   threshold?: number
   hasIndicator?: boolean
   indicatorPosition?: 'inner' | 'outer'
   autoPlay?: boolean
+  hasPadding?: boolean
 }
 
 const ImageCarousel = ({
   images,
+  currentIndex,
+  setCurrentIndex,
   intervalTime = 3000,
   delay = 500,
   threshold = 0.25,
   hasIndicator = true,
   indicatorPosition = 'inner',
   autoPlay = true,
+  hasPadding = false,
 }: Props) => {
-  const [currentIndex, setCurrentIndex] = useState(0)
   const [isMoving, setIsMoving] = useState(false)
   const [isTouching, setIsTouching] = useState(false)
   const [touchStart, setTouchStart] = useState(0)
   const [touchMoved, setTouchMoved] = useState(0)
   const [translateX, setTranslateX] = useState(`calc(-100vw * ${currentIndex + 1})`)
+  const isWindowZoomed = window.innerWidth !== document.documentElement.clientWidth
 
   useEffect(() => {
     if (!autoPlay || isTouching) return
@@ -49,6 +55,7 @@ const ImageCarousel = ({
   }
 
   const handleTouchMove = (e: TouchEvent) => {
+    if (isWindowZoomed) return
     setTouchMoved(touchStart - e.targetTouches[0].clientX)
     setTranslateX(`calc(-100vw * ${currentIndex + 1} - ${touchMoved}px)`)
   }
@@ -95,7 +102,7 @@ const ImageCarousel = ({
       onTouchEnd={handleTouchEnd}
     >
       <div
-        className={styles.images}
+        className={cx(styles.images, { [styles.padding]: hasPadding })}
         style={{
           transform: `translateX(${translateX})`,
           transition: isMoving ? `transform ${delay}ms ease` : '',

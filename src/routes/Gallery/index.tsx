@@ -3,6 +3,7 @@ import { useScrollTo } from 'hooks/useScrollTo'
 import { useModal } from 'hooks/useModal'
 import ImageGrid from 'components/ImageGrid'
 import ImageViewer from 'components/ImageViewer'
+import ImageCarousel from 'components/ImageCarousel'
 
 import gif01 from 'assets/images/GIF_01.gif'
 import gif02 from 'assets/images/GIF_02.gif'
@@ -78,7 +79,17 @@ const Gallery = () => {
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
           close={closeModal}
-        />
+          hasButton={false}
+        >
+          <ImageCarousel
+            images={imageList}
+            currentIndex={currentIndex}
+            setCurrentIndex={setCurrentIndex}
+            hasIndicator={false}
+            autoPlay={false}
+            hasPadding
+          />
+        </ImageViewer>
       )}
     </section>
   )
