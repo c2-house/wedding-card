@@ -34,6 +34,7 @@ const ImageCarousel = ({
   const [touchStart, setTouchStart] = useState(0)
   const [touchMoved, setTouchMoved] = useState(0)
   const [translateX, setTranslateX] = useState(`calc(-100vw * ${currentIndex + 1})`)
+  const isWindowZoomed = window.innerWidth !== document.documentElement.clientWidth
 
   useEffect(() => {
     if (!autoPlay || isTouching) return
@@ -54,6 +55,7 @@ const ImageCarousel = ({
   }
 
   const handleTouchMove = (e: TouchEvent) => {
+    if (isWindowZoomed) return
     setTouchMoved(touchStart - e.targetTouches[0].clientX)
     setTranslateX(`calc(-100vw * ${currentIndex + 1} - ${touchMoved}px)`)
   }
