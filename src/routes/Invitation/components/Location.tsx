@@ -55,7 +55,6 @@ const Location = () => {
   return (
     <section>
       <h2>LOCATION</h2>
-      <h3 className={styles.location}>아펠가모 공덕</h3>
       <ImageCarousel
         images={[image1, image2, image3]}
         currentIndex={currentIndex}
@@ -65,6 +64,7 @@ const Location = () => {
         delay={800}
       />
       <div ref={mapElement} className={styles.map} />
+      <h3 className={styles.location}>아펠가모 공덕</h3>
       <div className={styles.address}>
         {addressText.map((text) => (
           <div key={text.title} className={styles.addressItem}>
