@@ -22,10 +22,11 @@
     background-size: contain;
   }
 
-  .closeButton {
+  .top {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: calc(levels.$MODAL + 1);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -33,10 +34,11 @@
     padding: 16px;
   }
 
-  .controller {
+  .bottom {
     position: fixed;
     bottom: 0;
     left: 0;
+    z-index: calc(levels.$MODAL + 1);
     display: flex;
     align-items: center;
     justify-content: center;

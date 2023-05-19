@@ -27,11 +27,13 @@ const ImageViewer = ({ imageList, currentIndex, setCurrentIndex, close, hasButto
   return (
     <ModalPortal>
       <div className={styles.background}>
-        <button className={styles.closeButton} type='button' onClick={close}>
-          <CloseIcon />
-        </button>
+        <div className={styles.top}>
+          <button type='button' onClick={close}>
+            <CloseIcon />
+          </button>
+        </div>
         {children || <div className={styles.image} style={{ backgroundImage: `url(${imageList[currentIndex]})` }} />}
-        <div className={styles.controller}>
+        <div className={styles.bottom}>
           {hasButton && (
             <button type='button' onClick={handlePrevClick}>
               <LeftIcon />
