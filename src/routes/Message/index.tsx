@@ -9,6 +9,8 @@ import Button from 'components/Button'
 import { ReactComponent as DeleteIcon } from 'assets/icons/close.svg'
 import styles from './message.module.scss'
 
+const DISABLED = true
+
 const Message = () => {
   const [messages, setMessages] = useState<MessageDTO[]>([])
   const [formData, setFormData] = useState<MessageBody>({
@@ -56,12 +58,14 @@ const Message = () => {
   return (
     <section>
       <h2>MESSAGE</h2>
-      <p className={styles.subtitle}>
-        방명록 작성이 마감되었습니다.
-        <br />
-        축하해주신 모든 분들께 감사드립니다.
-      </p>
-      <form className={cx(styles.form, styles.disabled)} onSubmit={handleSubmit}>
+      {DISABLED && (
+        <p className={styles.subtitle}>
+          방명록 작성이 마감되었습니다.
+          <br />
+          축하해주신 모든 분들께 감사드립니다.
+        </p>
+      )}
+      <form className={cx(styles.form, { [styles.disabled]: DISABLED })} onSubmit={handleSubmit}>
         <div>
           <input
             type='text'
@@ -99,9 +103,11 @@ const Message = () => {
                 <span>{message.name}</span>
                 {/* <span>{message.created_at.slice(0, 10)}</span> */}
               </div>
-              <button type='button' value={message.id} onClick={handleDeleteClick}>
-                <DeleteIcon />
-              </button>
+              {!DISABLED && (
+                <button type='button' value={message.id} onClick={handleDeleteClick}>
+                  <DeleteIcon />
+                </button>
+              )}
             </div>
             <p>{message.description}</p>
           </li>

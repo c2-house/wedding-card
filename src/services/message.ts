@@ -2,21 +2,16 @@ import axios from 'axios'
 
 export interface MessageBody {
   name: string
-  password: string
+  password?: string
   description: string
 }
 
 export interface MessageDTO extends MessageBody {
   id: number
-  created_at: string
+  created_at?: string
 }
 
-interface MessageRes {
-  boards: MessageDTO[]
-}
-
-export const getMessages = () =>
-  axios.get<MessageRes>(`${process.env.REACT_APP_SERVER_URL}/boards/`).then((res) => res.data.boards)
+export const getMessages = () => axios.get<MessageDTO[]>('./boards.json').then((res) => res.data)
 
 export const postMessage = (message: MessageBody) =>
   axios.post<MessageDTO>(`${process.env.REACT_APP_SERVER_URL}/boards/`, message).then((res) => res.data)
