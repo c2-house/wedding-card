@@ -88,6 +88,7 @@ const Gallery = () => {
             hasIndicator={false}
             autoPlay={false}
             hasPadding
+            fullWidth
           />
         </ImageViewer>
       )}

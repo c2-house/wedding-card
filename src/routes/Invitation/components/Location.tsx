@@ -62,6 +62,7 @@ const Location = () => {
         indicatorPosition='outer'
         intervalTime={4000}
         delay={800}
+        fullWidth={false}
       />
       <div ref={mapElement} className={styles.map} />
       <h3 className={styles.location}>아펠가모 공덕</h3>

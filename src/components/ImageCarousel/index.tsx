@@ -15,7 +15,10 @@ interface Props {
   indicatorPosition?: 'inner' | 'outer'
   autoPlay?: boolean
   hasPadding?: boolean
+  fullWidth?: boolean
 }
+
+const MAX_WIDTH = 500
 
 const ImageCarousel = ({
   images,
@@ -28,13 +31,22 @@ const ImageCarousel = ({
   indicatorPosition = 'inner',
   autoPlay = true,
   hasPadding = false,
+  fullWidth = true,
 }: Props) => {
   const [isMoving, setIsMoving] = useState(false)
   const [isTouching, setIsTouching] = useState(false)
   const [touchStart, setTouchStart] = useState(0)
   const [touchMoved, setTouchMoved] = useState(0)
-  const [translateX, setTranslateX] = useState(`calc(-100vw * ${currentIndex + 1})`)
+  const [width, setWidth] = useState(0)
+  const [translateX, setTranslateX] = useState('')
   const isWindowZoomed = window.innerWidth !== document.documentElement.clientWidth
+
+  useEffect(() => {
+    const initialWidth = fullWidth ? window.innerWidth : Math.min(window.innerWidth, MAX_WIDTH)
+    setWidth(initialWidth)
+    setTranslateX(`calc(-1 * ${initialWidth} * ${currentIndex + 1}px)`)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fullWidth])
 
   useEffect(() => {
     if (!autoPlay || isTouching) return
@@ -47,7 +59,7 @@ const ImageCarousel = ({
     // eslint-disable-next-line consistent-return
     return () => clearInterval(interval)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex, intervalTime, isTouching])
+  }, [width, currentIndex, isTouching])
 
   const handleTouchStart = (e: TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
@@ -57,7 +69,7 @@ const ImageCarousel = ({
   const handleTouchMove = (e: TouchEvent) => {
     if (isWindowZoomed) return
     setTouchMoved(touchStart - e.targetTouches[0].clientX)
-    setTranslateX(`calc(-100vw * ${currentIndex + 1} - ${touchMoved}px)`)
+    setTranslateX(`calc(-1 * ${width} * ${currentIndex + 1} - ${touchMoved}px)`)
   }
 
   const handleTouchEnd = () => {
@@ -67,8 +79,8 @@ const ImageCarousel = ({
     setIsMoving(true)
     timeout(() => setIsMoving(false))
 
-    if (Math.abs(touchMoved) < window.innerWidth * threshold) {
-      setTranslateX(`calc(-100vw * ${currentIndex + 1})`)
+    if (Math.abs(touchMoved) < width * threshold) {
+      setTranslateX(`calc(-1 * ${width} * ${currentIndex + 1}px)`)
       return
     }
 
@@ -78,12 +90,12 @@ const ImageCarousel = ({
   const move = (direction: Direction) => {
     const index = direction === 'PREV' ? currentIndex - 1 : currentIndex + 1
     setCurrentIndex(index)
-    setTranslateX(`calc(-100vw * ${index + 1})`)
+    setTranslateX(`calc(-1 * ${width} * ${index + 1}px)`)
 
     if (index === -1 || index === images.length) {
       const newIndex = index === -1 ? images.length - 1 : 0
       setCurrentIndex(newIndex)
-      timeout(() => setTranslateX(`calc(-100vw * ${newIndex + 1})`))
+      timeout(() => setTranslateX(`calc(-1 * ${width} * ${newIndex + 1}px)`))
     }
   }
 
@@ -100,6 +112,7 @@ const ImageCarousel = ({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      style={{ width }}
     >
       <div
         className={cx(styles.images, { [styles.padding]: hasPadding })}
@@ -108,11 +121,11 @@ const ImageCarousel = ({
           transition: isMoving ? `transform ${delay}ms ease` : '',
         }}
       >
-        <img src={images[images.length - 1]} alt='' />
+        <img src={images[images.length - 1]} alt='' style={{ width }} />
         {images.map((image) => (
-          <img key={`image-${image}`} src={image} alt='' />
+          <img key={`image-${image}`} src={image} alt='' style={{ width }} />
         ))}
-        <img src={images[0]} alt='' />
+        <img src={images[0]} alt='' style={{ width }} />
       </div>
       {hasIndicator && (
         <div className={cx(styles.indicators, styles[indicatorPosition])}>
