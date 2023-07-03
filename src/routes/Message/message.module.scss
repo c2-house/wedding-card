@@ -1,11 +1,30 @@
 @use '/src/styles/constants/colors';
 
+.subtitle {
+  margin-bottom: 16px;
+  line-height: 1.5;
+  color: colors.$GRAY1;
+  text-align: center;
+}
+
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   background-color: colors.$SECONDARY;
+
+  &.disabled::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '';
+    background-color: colors.$GRAYD;
+    opacity: 0.7;
+  }
 
   & > div {
     display: flex;
@@ -73,6 +92,7 @@
     font-weight: 700;
     color: colors.$GRAY1;
 
+    // 작성일
     // span:last-child {
     //   margin-left: 10px;
     //   font-size: 14px;

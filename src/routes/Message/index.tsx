@@ -1,4 +1,5 @@
 import { FormEvent, MouseEvent, useEffect, useState } from 'react'
+import cx from 'classnames'
 
 import { useScrollTo } from 'hooks/useScrollTo'
 import { getMessages, MessageBody, MessageDTO, postMessage } from 'services/message'
@@ -55,7 +56,12 @@ const Message = () => {
   return (
     <section>
       <h2>MESSAGE</h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <p className={styles.subtitle}>
+        방명록 작성이 마감되었습니다.
+        <br />
+        축하해주신 모든 분들께 감사드립니다.
+      </p>
+      <form className={cx(styles.form, styles.disabled)} onSubmit={handleSubmit}>
         <div>
           <input
             type='text'
