@@ -38,12 +38,12 @@
 
   li {
     position: relative;
-    width: 25%;
-    padding: 12px;
     text-align: center;
   }
 
   a {
+    display: block;
+    padding: 12px;
     font-weight: 700;
     color: colors.$GRAY1;
     transition: color 0.2s ease-in-out;

@@ -48,12 +48,11 @@ const NavBar = () => {
     <nav className={styles.navBar}>
       <ul>
         {navList.map((item, index) => (
-          <li key={`gnb-item-${item.title}`}>
+          <li key={`gnb-item-${item.title}`} style={{ width: `${ITEM_WIDTH}%` }}>
             <NavLink
               to={item.to}
               className={({ isActive }) => cx({ [styles.isActive]: isActive })}
               onClick={() => setCurrentIndex(index)}
-              style={{ width: `${ITEM_WIDTH}%` }}
             >
               {item.title}
             </NavLink>
